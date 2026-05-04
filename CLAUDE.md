@@ -1,97 +1,134 @@
-# Claude Code OS — Kit Ratos de IA
+# Agência Murupi — Claude Code OS
 
-Este repositório é o kit de boas-vindas do curso Claude Code OS.
+## O que é esse workspace
+Workspace de operações da Agência Murupi. Aqui ficam clientes (B2B), conteúdo orgânico da Murupi, briefings, propostas, análises e o terreno do próximo infoproduto da Jaquelinne.
 
-Se você acabou de clonar esse repositório:
-1. Rode `/setup` pra configurar o sistema pro seu negócio (uns 5 minutos)
-2. Depois rode `/mapear` pra criar skills personalizadas pro que você faz no dia a dia
+**Estrutura de pastas:**
+- `_contexto/` — memória do sistema (não apagar)
+- `clientes/` — uma subpasta por cliente, com `briefing.md`, `proposta.html`, `campanhas/`, `copy/` e `relatorios/`
+- `briefings/` — drop zone de briefings novos antes de virarem cliente fechado
+- `propostas/` — propostas em andamento e enviadas (também ficam por cliente quando fechado)
+- `conteudo/` — produção orgânica da Murupi (`carrosseis/`, `roteiros/`, `posts/`)
+- `infoproduto/` — terreno do próximo lançamento (`pesquisa/`, `estrutura/`, `copy/`)
+- `dados/` — drop zone pra análise (CSVs, planilhas, PDFs)
+- `marca/` — identidade visual (paleta, logos, design-guide)
+- `templates/` — templates do kit Ratos (não editar manualmente)
+- `tarefas.md` — to-do corrente
+
+## Sobre o negócio
+Agência de marketing digital focada em **tráfego pago e consultoria estratégica** pra pequenos e médios negócios B2B. A régua é dado, não percepção. Atende empresas e profissionais autônomos que vendem serviços ou produtos. **Não atende B2C.**
+
+## O que mais fazemos aqui
+- Campanhas de tráfego pago (Meta Ads principalmente, Google Ads em expansão)
+- Estratégia de posicionamento
+- Copy (ads, landing pages, redes sociais, roteiros)
+- Estruturação de funis e ofertas com base em neuromarketing
+- Análise de dados e otimização contínua
+- Conteúdo orgânico pra Instagram e vídeos curtos da Murupi
+
+## Clientes e contexto
+B2B — empresas e profissionais autônomos. Pequena equipe interna (social media, designer, editor de vídeo). Jaquelinne fica na estratégia, copy e direção criativa.
+
+## Tom de voz
+Humano, direto, conversado. Autoridade sem arrogância. Didático sem ser professoral. Texto deve soar como conversa real, não como peça publicitária. Consistência, clareza e intenção por trás de cada palavra.
+
+**Evitar sempre:**
+- Clichês ("não é sobre isso, é sobre aquilo", "mergulhe de cabeça")
+- Travessão `—`
+- Estrutura quebrada / frase a frase artificial
+- Texto com cara de IA, genérico ou replicável
+- Tom excessivamente vendedor quando o objetivo é conexão
+- Excesso de explicação óbvia ou didatismo demais
+- Exageros emocionais genéricos
+
+## Ferramentas conectadas
+- **Meta Ads** — skill global `/meta-ads-ratos`
+- **Google Ads** — skill global `/google-ads-ratos`
+- **Google Analytics 4** — skill global `/ga4-ratos`
+- **VS Code** — ambiente técnico pra GTM e tracking server-side via Stape
+- **Instagram** — publicação manual por enquanto (Post for Me deferido em `tarefas.md`)
+
+MCPs configurados pra ativar sob demanda: ver `_contexto/mcps.md`.
 
 ---
 
-<!-- Este arquivo será atualizado pelo /setup com o contexto do seu negócio. -->
+## Filosofia: API antes de MCP
+
+Sempre que possível, **usar APIs e endpoints diretos em vez de MCPs** pra economizar tokens. MCPs ficam **desativados por padrão**. Só ativar um MCP quando a tarefa em curso realmente exigir, e **desativar de novo ao terminar**.
+
+Comandos de ativar/desativar prontos em `_contexto/mcps.md`.
+
+---
 
 ## Contexto do negócio
 
-No início de toda conversa, ler os seguintes arquivos (se existirem e estiverem configurados):
+No início de toda conversa, ler os seguintes arquivos:
 
-1. `_contexto/empresa.md` — quem é o usuário, o que faz, como funciona o negócio
-2. `_contexto/preferencias.md` — tom de voz, estilo de escrita, o que evitar
-3. `_contexto/estrategia.md` — foco atual, prioridades, o que pode esperar
+1. `_contexto/empresa.md` — quem é Jaquelinne, o que a Murupi faz, como funciona o negócio
+2. `_contexto/preferencias.md` — tom de voz, estilo, o que evitar
+3. `_contexto/estrategia.md` — foco atual, prioridades
 
-Usar essas informações como base pra qualquer resposta ou decisão. Ao sugerir prioridades, formatos ou abordagens, considerar o foco atual descrito em `estrategia.md`.
+Pra qualquer tarefa visual (carrossel, proposta, slide, landing page), consultar `marca/design-guide.md` antes.
 
-Para qualquer tarefa visual (carrossel, proposta, slide, landing page), consultar `marca/design-guide.md` como referência de estilo.
-
-Não é necessário listar o que foi lido nem confirmar a leitura. Apenas usar o contexto naturalmente.
+Não listar o que foi lido — apenas usar o contexto naturalmente.
 
 ---
 
 ## Fluxo de trabalho
 
-Antes de executar qualquer tarefa, verificar se existe uma skill relevante em `.claude/skills/` ou `.claude/commands/`.
+Antes de executar qualquer tarefa, verificar se existe uma skill relevante em `.claude/skills/`, `.claude/commands/` ou no `~/.claude/skills/` global (onde estão `/meta-ads-ratos`, `/google-ads-ratos`, `/ga4-ratos`).
 Se encontrar, seguir as instruções da skill.
 Se não encontrar, executar a tarefa normalmente.
 
-Ao concluir uma tarefa que não tinha skill mas parece repetível (o usuário provavelmente vai pedir de novo no futuro), perguntar:
+Ao concluir uma tarefa que não tinha skill mas parece repetível, perguntar:
 
 > "Isso pode virar uma skill pra próxima vez. Quer que eu crie?"
 
-Não perguntar pra tarefas pontuais ou perguntas simples. Só quando o padrão de repetição for claro.
+Não perguntar pra tarefas pontuais.
 
 ---
 
 ## Aprender com correções
 
-Quando o usuário corrigir algo, melhorar uma resposta ou dar uma instrução que parece permanente (frases como "na verdade é assim", "não faça mais isso", "prefiro assim", "sempre que...", "evita...", "da próxima vez..."), perguntar:
+Quando a Jaquelinne corrigir algo, melhorar uma resposta ou dar uma instrução que parece permanente ("na verdade é assim", "não faça mais isso", "prefiro assim", "sempre que...", "evita..."), perguntar:
 
 > "Quer que eu salve isso pra não precisar repetir?"
 
-Se sim, identificar onde faz mais sentido salvar:
+Se sim, identificar o destino:
+- **Sobre o negócio** (clientes, serviços, mercado, equipe) → `_contexto/empresa.md`
+- **Sobre preferências e estilo** (tom, formato, o que evitar) → `_contexto/preferencias.md`
+- **Sobre prioridades e foco** (projetos, metas, prazos) → `_contexto/estrategia.md`
+- **Regra de comportamento** (onde salvar, como nomear, fluxos) → este `CLAUDE.md`
+- **Mudança visual** (cores, fontes, logo) → `marca/design-guide.md`
 
-- **Sobre o negócio** (quem são os clientes, como funciona a empresa, serviços, mercado) → adicionar em `_contexto/empresa.md`
-- **Sobre preferências e estilo** (tom de voz, formato de resposta, o que evitar, como estruturar textos) → adicionar em `_contexto/preferencias.md`
-- **Sobre prioridades e foco atual** (projetos em andamento, metas do momento, prazos importantes, o que é prioridade agora) → adicionar em `_contexto/estrategia.md`
-- **Regra de comportamento nessa pasta** (onde salvar arquivos, como nomear, fluxos específicos) → adicionar no próprio `CLAUDE.md`
+Salvar com uma linha nova clara, sem reformatar o arquivo. Confirmar mostrando a linha adicionada.
 
-Salvar com uma linha nova clara, sem reformatar o arquivo inteiro. Confirmar o que foi salvo mostrando a linha adicionada.
-
-Não perguntar se a correção for óbvia de contexto imediato (ex: "na verdade o arquivo se chama X"). Só perguntar quando a informação tiver valor duradouro.
+Não perguntar se a correção for óbvia de contexto imediato. Só quando tiver valor duradouro.
 
 ---
 
 ## Manter contexto atualizado
 
-Ao terminar uma tarefa que mudou algo relevante no projeto (novo cliente, nova skill, mudança de foco, novo processo, ferramenta instalada, estrutura de pastas alterada), perguntar:
+Ao terminar uma tarefa que mudou algo relevante (novo cliente, nova skill, mudança de foco, novo processo, ferramenta instalada, estrutura alterada), perguntar:
 
 > "Isso mudou algo no teu contexto. Quer que eu atualize os arquivos de memória?"
 
-Se sim, identificar o que precisa atualizar:
+Se sim, identificar o destino certo (mesma lista acima) e mostrar o que vai mudar antes de salvar.
 
-- **Novo cliente, serviço, ferramenta, equipe** → `_contexto/empresa.md`
-- **Mudança de prioridade ou foco** → `_contexto/estrategia.md`
-- **Correção de tom ou estilo** → `_contexto/preferencias.md`
-- **Nova pasta, regra de organização, skill criada** → `CLAUDE.md`
-- **Mudança visual (cores, fontes, logo)** → `marca/design-guide.md`
+**Quando NÃO perguntar:** tarefas pontuais sem mudança de contexto, perguntas simples, mudanças já capturadas pela seção "Aprender com correções".
 
-Mostrar o que vai mudar antes de salvar. Não reformatar o arquivo inteiro, só adicionar ou editar a linha relevante.
-
-**Quando NÃO perguntar:**
-- Tarefas pontuais que não mudam o contexto (ex: escrever um email, criar um post avulso)
-- Perguntas simples ou conversas sem ação
-- Mudanças que já foram salvas pelo bloco "Aprender com correções"
-
-**Dica:** se não sabe se algo mudou, rode `/atualizar` pra uma varredura completa.
+**Dica:** rodar `/atualizar` faz uma varredura completa.
 
 ---
 
 ## Criação de skills
 
-Quando o usuário pedir pra criar uma nova skill:
+Quando a Jaquelinne pedir pra criar uma skill nova:
 
-1. Verificar se existe um template relevante em `templates/skills/`. Se existir, usar como base e adaptar pro contexto do usuário
-2. Perguntar: "Essa skill é específica pra esse projeto ou vai ser útil em qualquer projeto?"
-   - Específica desse negócio → salvar em `.claude/skills/nome-da-skill/SKILL.md` (local)
-   - Útil em qualquer projeto → salvar em `~/.claude/skills/nome-da-skill/SKILL.md` (global)
-3. Ler `_contexto/empresa.md` e `_contexto/preferencias.md` pra calibrar o conteúdo da skill ao contexto do negócio
-4. Se a skill precisar de arquivos de apoio (templates, referências, exemplos), criar dentro da pasta da skill
-5. Seguir o fluxo da skill-creator nativa do Claude Code
+1. Verificar se existe um template em `templates/skills/`. Se existir, usar como base.
+2. Perguntar: "Essa skill é específica desse projeto ou vai ser útil em qualquer projeto?"
+   - Específica → `.claude/skills/nome-da-skill/SKILL.md` (local)
+   - Genérica → `~/.claude/skills/nome-da-skill/SKILL.md` (global)
+3. Ler `_contexto/empresa.md` e `_contexto/preferencias.md` pra calibrar o conteúdo.
+4. Se a skill precisar de arquivos de apoio (templates, exemplos), criar dentro da pasta da skill.
+5. Seguir o fluxo da skill-creator nativa.
