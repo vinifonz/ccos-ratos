@@ -56,6 +56,7 @@ Criei clientes/[slug]/ com a estrutura padrão:
 - calendarios/ (calendários editoriais)
 - campanhas/ (campanhas de tráfego)
 - copy/ (copies aprovadas e revisões)
+- dados/ (CSVs, planilhas, exports, qualquer dado bruto pra análise)
 - pesquisa/ (deep research)
 - proposta.html (placeholder pra /proposta-comercial)
 - relatorios/ (relatórios de campanha)
