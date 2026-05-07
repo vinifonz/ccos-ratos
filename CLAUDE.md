@@ -5,7 +5,7 @@ Workspace de operações da Agência Murupi. Aqui ficam clientes (B2B), conteúd
 
 **Estrutura de pastas:**
 - `_contexto/` — memória do sistema (não apagar)
-- `clientes/` — uma subpasta por cliente, com `briefing.md`, `proposta.html`, `campanhas/`, `copy/` e `relatorios/`
+- `clientes/` — uma subpasta por cliente. **Toda pasta de cliente tem um `CLAUDE.md` próprio** (contexto específico da cliente que se soma ao raiz). Conteúdo padrão: `briefing.md`, `proposta.html`, `campanhas/`, `copy/`, `relatorios/`. Subpastas extras são abertas sob demanda.
 - `briefings/` — drop zone de briefings novos antes de virarem cliente fechado
 - `propostas/` — propostas em andamento e enviadas (também ficam por cliente quando fechado)
 - `conteudo/` — produção orgânica da Murupi (`carrosseis/`, `roteiros/`, `posts/`)
