@@ -70,14 +70,19 @@ Se o roteiro estiver em arquivo separado, referenciar o caminho no briefing. Se 
 
 ### Passo 3 — Gerar o briefing em markdown
 
-Montar o briefing seguindo este template, **sem inventar campos vazios** (se o usuário não passou Copy ainda, escrever literalmente "Pendente — escrever antes de mandar pro [designer/editor]"):
+**Ordem das seções (do mais essencial pro mais detalhado):** urgência destacada → cliente/data → tipo/formato → tema → referência → material de apoio → copy → observações.
+
+**Material de apoio fica no topo, NÃO em observações.** É input crítico (pasta de fotos, links de Drive/Dropbox, vídeos pra usar) — designer/editor precisa ver antes de começar, não no fim.
+
+Montar o briefing seguindo este template, **sem inventar campos vazios** (se a Jaquelinne não passou Copy ainda, escrever literalmente "Pendente — escrever antes de mandar pro [designer/editor]"):
 
 ```markdown
-# Briefing — [Tipo de peça] pro [designer / editor]
+# Briefing — [Tipo de peça] pra [designer / editor] ([nome])
+
+> ⚠️ **[URGÊNCIA EM CAIXA-ALTA SE FOR ALTA OU URGENTE]** — entrega até **[data limite formatada]** [(contexto curto se relevante, ex: Dia das Mães é domingo)]
 
 **Cliente:** [Cliente]
 **Data do briefing:** [DD/MM/YYYY]
-**Urgência:** [normal / alta / urgente] — [data limite: DD/MM, se houver]
 
 ---
 
@@ -92,22 +97,25 @@ Montar o briefing seguindo este template, **sem inventar campos vazios** (se o u
 ## Referência
 [Link OU caminho do arquivo em refs/. Pode ter mais de uma referência]
 
+## Material de apoio
+[Pasta de fotos / Drive / Dropbox / vídeos brutos / qualquer link de asset que o profissional precisa abrir antes de começar. Um por linha, com label do que tem dentro]
+
 ## Copy
-[Copy inteira aqui. Se for carrossel, indicar slide a slide quando aplicável.]
+[Copy inteira. Se a copy já marca elemento visual por slide (ex: "Slide 1 — Foto da Lara com o filho"), MANTER essa marcação inline na copy — não duplicar em Observações]
 
 ## Observações
-[Tudo que precisa saber — logo onde, marcações, hashtags na peça, restrições, detalhes técnicos]
+[Só o que NÃO cabe em outro lugar — estilo visual, ID a usar, restrições, regras de tom, palavras a não alterar, ritmo da copy, qualquer detalhe técnico]
 ```
 
-**Pra editor de vídeo, adicionar duas seções no final:**
+**Pra editor de vídeo, no lugar de "Material de apoio" usar "Material bruto" (mesma posição no topo) e adicionar "Roteiro detalhado" antes da Copy:**
 
 ```markdown
-## Roteiro detalhado
-[Roteiro com descrições/sugestões de cena, ou referência ao arquivo]
-
 ## Material bruto
 **Pasta:** [caminho completo da pasta com vídeos/áudios/imagens]
 [Lista dos arquivos principais, se quiser dar dica do que usar onde]
+
+## Roteiro detalhado
+[Roteiro com descrições/sugestões de cena por parte. Pode referenciar arquivo separado se for muito longo]
 ```
 
 ### Passo 4 — Salvar e mostrar pra Jaquelinne copiar
