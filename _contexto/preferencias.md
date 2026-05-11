@@ -27,3 +27,11 @@
 - Quando houver dúvida sobre tom, errar pelo lado da conversa real, não da peça publicitária.
 - Em copy pra cliente, sempre considerar nível de consciência e sofisticação do mercado antes de escrever.
 - Em conteúdo orgânico da Murupi, manter o tom analítico-criativo característico (dados validados + olhar crítico).
+
+## Regras de formato
+
+### Legenda de post com vídeo (reels, stories de vídeo, posts com peça em vídeo)
+- **A legenda nunca repete o roteiro do vídeo.** Ninguém lê na legenda um texto que acabou de ser narrado na peça.
+- **A legenda sempre complementa o contexto** — entrega uma camada que o vídeo não cabe: bastidores, info prática, perspectiva nova, convite à ação, história paralela.
+- Quando o vídeo apresenta o "o quê", a legenda pode trazer o "como visitar", o "o que acontece depois", o "por que isso importa pra gente", ou o "o que você não viu".
+- Vale para reels, vídeos curtos, e qualquer peça em que a copy esteja narrada/legendada dentro do material visual.
