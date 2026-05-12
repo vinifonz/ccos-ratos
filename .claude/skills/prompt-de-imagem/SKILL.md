@@ -116,15 +116,14 @@ e formato técnico no final].
 
 - Linguagem natural rica, frases conectadas — não lista de tags
 - Específico, nunca genérico ("luz natural soft entrando pela esquerda como final de tarde" > "boa iluminação")
-- Cores nomeadas **e** hex quando vier do design-guide ("laranja-ocre #D98A06, off-white #F4F2EF")
+- Cores nomeadas em inglês **e** hex quando vier do design-guide ("burnt ochre #D98A06, warm off-white #F4F2EF")
 - Mood no meio do prompt, não jogado no fim — ele orienta o gerador melhor quando vem cedo
-- Evitar adjetivos vazios ("bonito", "incrível", "moderno", "marcante") — sempre preferir descrição concreta
-- Sem clichê visual ("etéreo", "mágico", "épico") a menos que ela explicitamente queira
-- Sem travessão (regra do `_contexto/preferencias.md` vale aqui também)
+- Evitar adjetivos vazios ("beautiful", "amazing", "modern", "stunning", "striking") — sempre preferir descrição concreta
+- Sem clichê visual ("ethereal", "magical", "epic", "cinematic" sem contexto) a menos que ela explicitamente queira
 - Se a referência tiver pessoas, descrever de forma genérica (etnia/tom de pele, faixa etária, expressão, vestimenta) — geradores recusam prompts de pessoas reais identificáveis
 - Se a referência tiver elementos copyrighted (personagens de filme/jogo, mascotes de marca), substituir por equivalente genérico que pega o vibe
 - Se houver texto na arte, descrever conteúdo + estilo da tipografia, mas **avisar a Jaquelinne** que geradores cometem erro de tipografia: "geradores de imagem erram texto com frequência — recomendo gerar sem texto e adicionar tipografia depois no editor"
-- Proporção/formato no final como instrução técnica direta ("Vertical 4:5, alta resolução")
+- Proporção/formato no final como instrução técnica direta ("Vertical 4:5, high resolution")
 
 ### Passo 5 — Entregar pra Jaquelinne
 
@@ -153,9 +152,11 @@ e formato técnico no final].
 - Mood: [da ref X]
 - [demais camadas]
 
-## Prompt final
-[Prompt completo em PT-BR]
+## Prompt final (EN)
+[Prompt completo em inglês]
 ```
+
+(Se a Jaquelinne pedir versão em PT-BR também, adicionar uma seção `## Prompt final (PT-BR)` abaixo com a tradução cuidadosa, mantendo terminologia técnica de design.)
 
 5. **Mostrar o prompt inteiro no chat** pra ela copiar direto. Não basta salvar:
 
@@ -164,10 +165,10 @@ e formato técnico no final].
 > Pra copiar e jogar no [DALL-E / Sora / Nano Banana / Gemini]:
 >
 > ---
-> [PROMPT]
+> [PROMPT EM INGLÊS]
 > ---
 >
-> Quer testar e iterar (você gera, me mostra, eu refino o prompt), quer versão em inglês também (alguns geradores respondem melhor em EN), ou tá fechado?"
+> Quer testar e iterar (você gera, me mostra, eu refino o prompt), quer versão em PT-BR também, ou tá fechado?"
 
 ---
 
@@ -176,7 +177,7 @@ e formato técnico no final].
 - Skill é pra geradores de **linguagem natural**. Pra Midjourney, avisar que o formato é outro e adaptar (curto + parâmetros tipo `--ar 1:1 --style raw`)
 - Sempre decompor a referência **antes** de montar prompt. Não pular o quebra-cabeça mesmo que ela diga "copia essa ref aí" — explicar que selecionar camadas dá resultado mais coerente com a marca
 - Cruzar com design-guide **antes** de gerar prompt final. Conflito de marca pego depois é retrabalho
-- Linguagem do prompt: PT-BR por padrão. Oferecer versão EN no fim se ela quiser, ou se o resultado do gerador vier ruim na primeira tentativa
+- Linguagem do prompt: **inglês por padrão** (DALL-E, Sora, Nano Banana, Gemini, Imagen respondem melhor em EN). Oferecer versão PT-BR no fim se ela quiser, ou gerar PT direto se ela pedir explicitamente
 - Não inventar conteúdo da arte. Se ela não disse o tema, perguntar
 - Prompt pronto **sempre é mostrado inteiro no chat** pra cópia rápida — não basta só salvar
 - Se ela quiser apenas o prompt sem salvar arquivo (one-off), aceitar — só perguntar no fim "quer que eu salve esse prompt em arquivo ou só usa do chat mesmo?"
