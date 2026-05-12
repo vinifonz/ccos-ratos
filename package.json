@@ -1,0 +1,10 @@
+{
+  "name": "agencia-murupi-workspace",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Render tooling for Murupi creative pieces",
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.60.0"
+  }
+}
