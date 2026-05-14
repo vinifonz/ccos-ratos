@@ -45,6 +45,7 @@ Humano, direto, conversado. Autoridade sem arrogância. Didático sem ser profes
 - **Meta Ads** — skill global `/meta-ads-ratos`
 - **Google Ads** — skill global `/google-ads-ratos`
 - **Google Analytics 4** — skill global `/ga4-ratos`
+- **Google Workspace** — CLI `gws` (`@googleworkspace/cli`) autenticada em `contato@agenciamurupi.com`; cobre Drive, Gmail, Calendar, Docs, Sheets, Slides, Tasks. Credenciais cifradas em `~/.config/gws/`. Ver memória `gws-cli` pra detalhes.
 - **VS Code** — ambiente técnico pra GTM e tracking server-side via Stape
 - **Instagram** — publicação manual por enquanto (Post for Me deferido em `tarefas.md`)
 
