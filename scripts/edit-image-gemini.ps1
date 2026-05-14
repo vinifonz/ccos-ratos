@@ -71,19 +71,21 @@ $mimeType = switch ($ext) {
     default { throw "Extensao nao suportada: $ext (use jpg/png/webp/heic)" }
 }
 
-# 4. Le o prompt (inline ou arquivo)
+# 4. Le o prompt (inline ou arquivo).
+# Cast [string] obrigatorio: sem ele, ConvertTo-Json no PS 5.1 wrappa o conteudo
+# como {"value": "..."} dentro de payloads aninhados e a API rejeita com 400.
 $promptText = if (Test-Path $Prompt -PathType Leaf) {
     $resolvedPrompt = if ([System.IO.Path]::IsPathRooted($Prompt)) { $Prompt } else { Join-Path $workspaceRoot $Prompt }
-    Get-Content $resolvedPrompt -Raw -Encoding utf8
+    [string](Get-Content $resolvedPrompt -Raw -Encoding utf8)
 } else {
-    $Prompt
+    [string]$Prompt
 }
 
 if ([string]::IsNullOrWhiteSpace($promptText)) {
     throw "Prompt vazio."
 }
 
-# 5. Monta payload
+# 5. Monta payload (responseModalities exigido pelos modelos de imagem)
 $body = @{
     contents = @(@{
         parts = @(
@@ -91,6 +93,9 @@ $body = @{
             @{ inlineData = @{ mimeType = $mimeType; data = $imageBase64 } }
         )
     })
+    generationConfig = @{
+        responseModalities = @("TEXT", "IMAGE")
+    }
 } | ConvertTo-Json -Depth 10 -Compress
 
 # 6. Chama a API
@@ -107,7 +112,18 @@ try {
         -TimeoutSec 180
 } catch {
     Write-Host "Erro na chamada da API:" -ForegroundColor Red
-    if ($_.ErrorDetails.Message) { Write-Host $_.ErrorDetails.Message }
+    if ($_.ErrorDetails.Message) {
+        Write-Host $_.ErrorDetails.Message
+    } elseif ($_.Exception.Response) {
+        try {
+            $stream = $_.Exception.Response.GetResponseStream()
+            $reader = New-Object System.IO.StreamReader($stream)
+            $errorBody = $reader.ReadToEnd()
+            Write-Host $errorBody
+        } catch {
+            Write-Host "Sem corpo de erro disponivel."
+        }
+    }
     throw
 }
 
