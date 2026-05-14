@@ -62,6 +62,18 @@ Comandos de ativar/desativar prontos em `_contexto/mcps.md`.
 
 ---
 
+## Custo e gasto — sempre avisar antes
+
+Toda ação que **gasta dinheiro real** (chamada de API paga em volume, ativação de billing, upgrade de plano, geração de imagem por API, etc.) precisa de **aviso explícito antes de rodar**. Mostrar o custo estimado e esperar confirmação. Jaquelinne controla orçamento apertado e quer cada gasto como decisão consciente.
+
+**Preferência permanente:** quando existir alternativa flat-rate (GUI de assinatura já paga: AI Studio free tier, ChatGPT Plus, Gemini Advanced), **priorizar a GUI** em vez de chamada de API paga por uso. Só usar API paga quando o ganho em automação compensar (ex.: edits cirúrgicos com versionamento automático, em volume baixo).
+
+**O que NÃO precisa de aviso:** APIs já configuradas e baratas (Gemini text < R$0,01/call), comandos read-only (gws, ga4, etc.), ações dentro do GUI de uma assinatura que já existe.
+
+Ver memória `cost-vigilance` pra detalhes.
+
+---
+
 ## Contexto do negócio
 
 No início de toda conversa, ler os seguintes arquivos:
