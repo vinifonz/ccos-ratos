@@ -81,13 +81,19 @@ Paleta visual de referência em `marca/paleta.png`.
 
 Estilo aplicado quando a Murupi produz vídeo orgânico (Reel, story de vídeo, post com vídeo) com legenda queimada dentro da peça. Não confundir com a **caption** do post no feed — essa é regida por outra regra (a caption complementa o áudio, nunca repete).
 
-- **Tipografia:** **Poppins Regular** (Google Fonts — OFL). Arquivo: `marca/fonts/Poppins-Regular.ttf`.
-- **Tamanho:** 35pt (referência CapCut/Premiere). Em renderizadores ASS/libass, equivale a `FontSize=35` no force_style.
-- **Cor do texto:** `#F4F2EF` (off-white da paleta) — lê sobre fundo claro e escuro.
-- **Tratamento de leitura:** outline `#242424` (preto suave da paleta) com espessura fina (~1.5px ASS). Sem shadow, sem caixa de fundo.
-- **Posição:** centro horizontal + centro vertical (meio da tela). Alignment ASS = `5`.
+- **Tipografia:** **Poppins Bold** (Google Fonts — OFL). Arquivo: `marca/fonts/Poppins-Bold.ttf`.
+- **Tamanho:** `FontSize=7` em unidades ASS/libass (≈ 35pt visual no CapCut/Premiere em 1080×1920).
+- **Cor do texto:** `#F4F2EF` (off-white da paleta) — tipo pura, sem contorno.
+- **Tratamento de leitura:** **sem outline**. Sombra cinza escuro `#333333` com opacidade 40% (alpha ASS = `&H99`), offset suave (Shadow=3).
+- **Espaçamento:** padrão (Spacing=0).
+- **Posição:** centro horizontal + centro vertical (meio da tela). Alignment ASS = `5`, MarginV=0.
 - **Animação:** **estática**. Frase aparece inteira de uma vez e some quando a próxima começa. Sem fade, sem pop, sem slide.
 - **Quebra de cue:** **por sentença linguística** — cada legenda corresponde a uma sentença completa que termina em `.` `?` ou `!`. Vírgula e dois-pontos não quebram. Libass quebra automático em múltiplas linhas quando a sentença é longa (WrapStyle padrão).
+
+**Force_style ffmpeg pronto pra colar:**
+```
+FontName=Poppins,FontSize=7,Bold=1,PrimaryColour=&H00EFF2F4,BackColour=&H99333333,BorderStyle=1,Outline=0,Shadow=3,Alignment=5,MarginV=0,Spacing=0
+```
 
 ---
 
