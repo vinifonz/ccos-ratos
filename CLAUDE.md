@@ -62,15 +62,17 @@ Comandos de ativar/desativar prontos em `_contexto/mcps.md`.
 
 ---
 
-## Custo e gasto — sempre avisar antes
+## Custo e gasto — automação OK, custo sempre visível
 
-Toda ação que **gasta dinheiro real** (chamada de API paga em volume, ativação de billing, upgrade de plano, geração de imagem por API, etc.) precisa de **aviso explícito antes de rodar**. Mostrar o custo estimado e esperar confirmação. Jaquelinne controla orçamento apertado e quer cada gasto como decisão consciente.
+Automação via API paga **é bem-vinda** quando o ganho compensa. O pedido é cost-awareness, não cost-avoidance. Três comportamentos:
 
-**Preferência permanente:** quando existir alternativa flat-rate (GUI de assinatura já paga: AI Studio free tier, ChatGPT Plus, Gemini Advanced), **priorizar a GUI** em vez de chamada de API paga por uso. Só usar API paga quando o ganho em automação compensar (ex.: edits cirúrgicos com versionamento automático, em volume baixo).
+1. **Avisar antes** de qualquer gasto não-trivial — listar custo unitário, volume estimado, total esperado, esperar confirmação. Nunca rodar "pra ver" e cobrar depois.
+2. **Considerar GUI flat-rate primeiro** — quando a feature pode rodar via assinatura já paga (AI Studio free, ChatGPT Plus, Gemini Advanced), propor esse caminho antes de API paga. Quando não for viável (limite técnico, ToS, fragilidade de Playwright), explicar honestamente e propor API.
+3. **Mostrar custo durante o uso** — toda call de API paga termina com `🔸 custo: R$X.XX (sessão: R$Y.YY)` pra Jaquelinne judgar ROI real, não só estimativa.
 
-**O que NÃO precisa de aviso:** APIs já configuradas e baratas (Gemini text < R$0,01/call), comandos read-only (gws, ga4, etc.), ações dentro do GUI de uma assinatura que já existe.
+**O que NÃO precisa de aviso:** APIs já configuradas e baratas (Gemini text < R$0,01/call), comandos read-only (gws, ga4, meta-ads, google-ads), ações dentro de GUI de assinatura que já existe.
 
-Ver memória `cost-vigilance` pra detalhes.
+Ver memória `cost-vigilance` pra thresholds e limites honestos de automação via assinatura.
 
 ---
 
