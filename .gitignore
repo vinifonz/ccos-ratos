@@ -34,3 +34,6 @@ tarefas.md
 # Sistema
 .DS_Store
 node_modules/
+
+# Estado de scripts agendados (timestamps de última execução, etc)
+scripts/state/
