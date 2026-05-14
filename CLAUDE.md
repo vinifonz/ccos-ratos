@@ -67,7 +67,7 @@ Comandos de ativar/desativar prontos em `_contexto/mcps.md`.
 Automação via API paga **é bem-vinda** quando o ganho compensa. O pedido é cost-awareness, não cost-avoidance. Três comportamentos:
 
 1. **Avisar antes** de qualquer gasto não-trivial — listar custo unitário, volume estimado, total esperado, esperar confirmação. Nunca rodar "pra ver" e cobrar depois.
-2. **Considerar GUI flat-rate primeiro** — quando a feature pode rodar via assinatura já paga (AI Studio free, ChatGPT Plus, Gemini Advanced), propor esse caminho antes de API paga. Quando não for viável (limite técnico, ToS, fragilidade de Playwright), explicar honestamente e propor API.
+2. **Considerar GUI flat-rate primeiro** — quando a feature pode rodar via assinatura já paga (AI Studio free, ChatGPT Pro, Gemini Advanced), propor esse caminho antes de API paga. Quando não for viável (limite técnico, ToS, fragilidade de Playwright), explicar honestamente e propor API.
 3. **Mostrar custo durante o uso** — toda call de API paga termina com `🔸 custo: R$X.XX (sessão: R$Y.YY)` pra Jaquelinne judgar ROI real, não só estimativa.
 
 **O que NÃO precisa de aviso:** APIs já configuradas e baratas (Gemini text < R$0,01/call), comandos read-only (gws, ga4, meta-ads, google-ads), ações dentro de GUI de assinatura que já existe.
