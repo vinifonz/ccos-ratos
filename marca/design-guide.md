@@ -77,6 +77,20 @@ Paleta visual de referência em `marca/paleta.png`.
 
 ---
 
+## Legenda em vídeo (subtitle queimada)
+
+Estilo aplicado quando a Murupi produz vídeo orgânico (Reel, story de vídeo, post com vídeo) com legenda queimada dentro da peça. Não confundir com a **caption** do post no feed — essa é regida por outra regra (a caption complementa o áudio, nunca repete).
+
+- **Tipografia:** **Poppins Regular** (Google Fonts — OFL). Arquivo: `marca/fonts/Poppins-Regular.ttf`.
+- **Tamanho:** 35pt (referência CapCut/Premiere). Em renderizadores ASS/libass, equivale a `FontSize=35` no force_style.
+- **Cor do texto:** `#F4F2EF` (off-white da paleta) — lê sobre fundo claro e escuro.
+- **Tratamento de leitura:** outline `#242424` (preto suave da paleta) com espessura fina (~1.5px ASS). Sem shadow, sem caixa de fundo.
+- **Posição:** centro horizontal + centro vertical (meio da tela). Alignment ASS = `5`.
+- **Animação:** **estática**. Frase aparece inteira de uma vez e some quando a próxima começa. Sem fade, sem pop, sem slide.
+- **Quebra de cue:** **por sentença linguística** — cada legenda corresponde a uma sentença completa que termina em `.` `?` ou `!`. Vírgula e dois-pontos não quebram. Libass quebra automático em múltiplas linhas quando a sentença é longa (WrapStyle padrão).
+
+---
+
 ## Observações adicionais
 - Conteúdo orgânico da Murupi puxa **vida real** — fotos de bastidor, do dia a dia, da Jaquelinne mesmo. A estética visual acompanha esse princípio.
 - Em peças com texto longo, priorizar Jost. Reservar Buffalo pra abertura/destaque.
