@@ -95,11 +95,12 @@ Esses são alternativas em formato de API/CLI direto. Não consomem token enquan
 **Quando usar:** se quiser automatizar publicação de carrossel/reels via `/carrossel`.
 **Pré-requisito:** criar conta em [postforme.dev](https://postforme.dev) + salvar `POSTFORME_API_KEY` no `.env`.
 
-### Gemini API — geração e edição de imagem (Nano Banana 2 / Pro) + texto Gemini
-**Quando usar:** chamar Nano Banana 2/Pro pra gerar ou editar imagem direto da API, ou rodar prompts em modelos Gemini 2.5/3. Configurada e validada.
+### Gemini API — Nano Banana Pro (imagem) + Gemini 2.5/3 (texto)
+**Quando usar:** chamar API direto pra **editar imagem via JSON** (skill `/editar-imagem`) ou rodar prompts em texto. **Geração de imagem do zero NÃO usa API** — fica no GUI do AI Studio (decisão estratégica, ver memória `imagem-workflow-split`). Configurada e validada.
 **Pré-requisito:** chave em `.env.local` como `GEMINI_API_KEY` (vinculada ao project GCP `murupi-gws`).
 **Endpoint:** `https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent` com header `x-goog-api-key`.
-**Modelos:** `gemini-2.5-flash` (texto barato), `gemini-3.1-flash-image-preview` (Nano Banana 2), `gemini-3-pro-image-preview` (Nano Banana Pro).
+**Modelo padrão imagem:** `gemini-3-pro-image-preview` (Nano Banana Pro) — único default da Murupi.
+**Modelo padrão texto:** `gemini-2.5-flash` pra validação/calls rápidos; `gemini-3-pro` quando precisar raciocínio pesado.
 **Atenção Windows:** usar `Invoke-RestMethod`, não `curl.exe` (que mangulia aspas duplas do JSON). Ver memória `gemini-api` pro padrão de chamada.
 
 ### Google Workspace CLI — Drive/Gmail/Calendar/Docs/Sheets/Slides

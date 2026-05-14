@@ -1,7 +1,7 @@
 ---
 name: editar-imagem
 description: >
-  Edita partes específicas de uma imagem existente usando JSON estruturado no Nano Banana 2
+  Edita partes específicas de uma imagem existente usando JSON estruturado no Nano Banana Pro
   (Gemini 3 Pro Image), em vez de regerar a imagem inteira. Decompõe a imagem em camadas
   num JSON (sujeito, iluminação, câmera, background, mood, paleta, materiais, etc.),
   identifica qual campo precisa mudar e modifica só esse campo, mantendo todos os outros
@@ -16,7 +16,7 @@ description: >
   antes de aprovar (usar `/revisar-peca`).
 ---
 
-# /editar-imagem — Edição pontual via JSON (Nano Banana 2 / Gemini 3 Pro Image)
+# /editar-imagem — Edição pontual via JSON (Nano Banana Pro / Gemini 3 Pro Image)
 
 ## Contexto e dependências
 
@@ -28,7 +28,7 @@ description: >
   - Murupi orgânico: `conteudo/prompts-imagem/edits/`
   - Infoproduto: `infoproduto/prompts-imagem/edits/`
 
-A skill mira o **Nano Banana 2 / Gemini 3 Pro Image** (que processa JSON estruturado de forma confiável). Funciona também com Gemini 2.5 Flash Image e DALL-E 3, mas o controle por campo isolado é mais limpo no Nano Banana 2. Se a Jaquelinne pedir Midjourney ou Stable Diffusion, avisar que esses modelos não respondem bem a JSON e oferecer adaptação pra prosa.
+A skill mira o **Nano Banana Pro** (Gemini 3 Pro Image, model ID `gemini-3-pro-image-preview`), que é o modelo default da Murupi pra qualquer trabalho de imagem. Processa JSON estruturado com precisão alta. Se a Jaquelinne pedir Midjourney ou Stable Diffusion, avisar que esses modelos não respondem bem a JSON e oferecer adaptação pra prosa.
 
 ---
 
@@ -42,7 +42,7 @@ A skill faz três coisas:
 
 1. **Decompõe** a imagem original em JSON estruturado (extrai os campos a partir do que ela mostra).
 2. **Modifica** só o(s) campo(s) que a Jaquelinne pediu pra mudar.
-3. **Entrega** o JSON pronto + a frase de comando pra colar no Nano Banana 2 junto com a imagem original.
+3. **Entrega** o JSON pronto + a frase de comando pra colar no Nano Banana Pro junto com a imagem original.
 
 ---
 
@@ -99,7 +99,7 @@ Olhar a imagem com atenção e preencher o schema abaixo, campo por campo. **Cad
 
 - Não preencher campo que não dá pra ver com clareza. Deixar como string vazia `""` ou omitir o campo. Inventar campo cria conflito na regeneração.
 - Detalhar o sujeito principal a fundo. É a parte mais vulnerável a "loteria da IA" e detalhe denso ancora a consistência.
-- Câmera é o campo onde Nano Banana 2 mais respeita. Lente + ângulo + DoF bem descritos seguram a composição.
+- Câmera é o campo onde Nano Banana Pro mais respeita. Lente + ângulo + DoF bem descritos seguram a composição.
 - Cor com hex sempre que vier do design-guide do cliente ou da Murupi.
 
 Mostrar pra Jaquelinne o JSON extraído:
@@ -155,7 +155,7 @@ Apresentar dois blocos no chat:
 [JSON COMPLETO COM O(S) CAMPO(S) MODIFICADO(S)]
 ```
 
-**Bloco 2 — A frase de comando** pra ela colar no Nano Banana 2 junto com a imagem original e o JSON:
+**Bloco 2 — A frase de comando** pra ela colar no Nano Banana Pro junto com a imagem original e o JSON:
 
 ```
 Edit the attached image using the JSON specification below. Apply ONLY the changes implied by the JSON fields — preserve every other element of the source image exactly: same person, same composition, same camera setup, same color palette, same lighting (unless explicitly changed in the JSON). Do not regenerate or reinterpret elements that are not edited. Match the source image pixel-by-pixel for all unchanged fields.
@@ -163,7 +163,7 @@ Edit the attached image using the JSON specification below. Apply ONLY the chang
 [JSON COMPLETO]
 ```
 
-A frase de comando é o que segura o modelo no modo "edit" em vez de "regenerate". Sem ela, o Nano Banana 2 às vezes ignora o JSON e regera tudo do zero.
+A frase de comando é o que segura o modelo no modo "edit" em vez de "regenerate". Sem ela, o Nano Banana Pro às vezes ignora o JSON e regera tudo do zero.
 
 ### Passo 6 — Salvar o arquivo
 
@@ -193,7 +193,7 @@ A frase de comando é o que segura o modelo no modo "edit" em vez de "regenerate
 ## Diff dos campos
 - `[campo modificado]`: `[valor antigo]` → `[valor novo]`
 
-## Comando completo pra colar no Nano Banana 2
+## Comando completo pra colar no Nano Banana Pro
 [Bloco 2 do Passo 5]
 ```
 
@@ -212,10 +212,10 @@ Pra cada nova rodada, salvar versão `v2`, `v3` etc. no mesmo arquivo, em seçõ
 
 ## Regras
 
-- **JSON sempre em inglês.** Nano Banana 2 / Gemini 3 Pro Image processam JSON estruturado em inglês com muito mais precisão que em português.
+- **JSON sempre em inglês.** Nano Banana Pro / Gemini 3 Pro Image processam JSON estruturado em inglês com muito mais precisão que em português.
 - **Mexer só no campo pedido.** Resistir a "melhorar de passagem" outros campos. Quebra a consistência da edição.
 - **A frase de comando é obrigatória.** Sem ela, o modelo regera. Não entregar JSON sem o comando colado embaixo.
-- **A imagem original tem que ser anexada junto com o JSON na hora de mandar pro Nano Banana 2.** Avisar isso explicitamente no fim.
+- **A imagem original tem que ser anexada junto com o JSON na hora de mandar pro Nano Banana Pro.** Avisar isso explicitamente no fim.
 - **Detalhe denso no sujeito principal.** É o campo onde o modelo mais perde consistência. Vale a pena descrever rosto, cabelo, expressão, vestimenta com precisão.
 - **Cores em hex quando vem do design-guide.** Reduz drift cromático na regeneração.
 - **Não preencher campo que não dá pra ler na imagem.** String vazia é melhor que palpite — palpite cria conflito.
