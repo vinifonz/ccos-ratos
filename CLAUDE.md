@@ -47,6 +47,7 @@ Humano, direto, conversado. Autoridade sem arrogância. Didático sem ser profes
 - **Google Analytics 4** — skill global `/ga4-ratos`
 - **Google Workspace** — CLI `gws` (`@googleworkspace/cli`) autenticada em `contato@agenciamurupi.com`; cobre Drive, Gmail, Calendar, Docs, Sheets, Slides, Tasks. Credenciais cifradas em `~/.config/gws/`. Ver memória `gws-cli` pra detalhes.
 - **Gemini API** — chave em `.env.local` como `GEMINI_API_KEY` (vinculada ao project GCP `murupi-gws`). Padrão Murupi: **Nano Banana Pro** (`gemini-3-pro-image-preview`) pra qualquer imagem; Gemini 2.5/3 pra texto. **Workflow:** geração nova fica no GUI do AI Studio; só edição via JSON usa API direto (eventualmente). Ver memórias `gemini-api` e `imagem-workflow-split`.
+- **Canva** — skill global `/canva-murupi` via Connect API (HTTP direto, sem MCP). Conta Pro. Lista/cria/exporta designs, faz upload de assets. Brand templates + autofill exigem Teams (deferido). Credenciais OAuth em `~/.claude/skills/canva-murupi/.env`.
 - **VS Code** — ambiente técnico pra GTM e tracking server-side via Stape
 - **Instagram** — publicação manual por enquanto (Post for Me deferido em `tarefas.md`)
 
