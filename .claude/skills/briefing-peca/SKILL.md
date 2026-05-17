@@ -115,7 +115,41 @@ Montar o briefing seguindo este template, **sem inventar campos vazios** (se a J
 [Lista dos arquivos principais, se quiser dar dica do que usar onde]
 
 ## Roteiro detalhado
-[Roteiro com descrições/sugestões de cena por parte. Pode referenciar arquivo separado se for muito longo]
+[Lista cena-a-cena. NUNCA usar tabela markdown — ClickUp não cola tabela legível.]
+```
+
+### Regras do roteiro detalhado (editor de vídeo)
+
+- **Sempre em formato LISTA cena-a-cena, NUNCA em tabela.** O ClickUp não cola tabela markdown legível.
+- **Não usar timestamps** (0:00–0:03). Numerar como `Cena 1`, `Cena 2`, etc. É como o editor marca no CapCut. Duração aproximada pode ir entre parênteses no header (`Cena 1 — Hook (≈3s)`).
+- Cada cena tem 3 campos fixos: **Texto em tela**, **Imagem** (qual arquivo ou banco), **Animação do texto**.
+- Quando misturar arquivos do banco interno com banco de imagens, marcar com 🟢 (banco interno) e 📦 (banco de imagens) e incluir a legenda no topo do roteiro.
+- Quando precisar de cena de banco de imagens, **sempre incluir termos de busca em inglês** (ex: "calm woman breathing chest close-up") pra o editor procurar direto em Pexels/Pixabay/Coverr.
+
+**Template do roteiro detalhado (editor):**
+
+```markdown
+## Roteiro detalhado
+
+**Legenda:** 🟢 = arquivo do banco interno · 📦 = banco de imagens
+
+---
+
+### Cena 1 — [função: Hook / Síntese / CTA / etc] (≈Xs)
+- **Texto em tela:** [texto exato que aparece]
+- **Imagem:** [🟢 `nome-do-arquivo.MOV` com descrição curta OU 📦 Banco de imagens com termos de busca em inglês]
+- **Animação do texto:** [fade/slide/etc + duração em ms]
+
+### Cena 2 (≈Xs)
+- **Texto em tela:** ...
+- **Imagem:** ...
+- **Animação do texto:** ...
+
+[... continuar pra todas as cenas]
+
+---
+
+**Duração total:** Xs.
 ```
 
 ### Passo 4 — Salvar e mostrar pra Jaquelinne copiar
